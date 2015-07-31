@@ -1,0 +1,225 @@
+bplist00Ñ_WebMainResourceÕ	
+_WebResourceFrameName^WebResourceURL_WebResourceData_WebResourceMIMEType_WebResourceTextEncodingNameP_Bhttp://users.csc.calpoly.edu/~jworkman/102/Project05/project5.htmlO"<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><html><head>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>CPE 102 Program 5</title><style type="text/css"></style></head><body>
+<span style="font-weight: bold;">CPE 102 Program 5 - Doubly Linked
+List
+and Iterators</span><br style="font-weight: bold;">
+
+<br>
+
+<span style="font-weight: bold;">Ground Rules</span><br>
+
+<p style="margin-left: 22px;">No
+collaboration is allowed on this program assignment. Your program must
+be an individual and original effort. Except for any situations
+explicitly identified in this assignment, if any, you may only receive
+help from your instructor or the <a href="https://www.csc.calpoly.edu/current/free-tutoring/">tutors</a>
+provided by the Computer Science Department. <span style="font-size: 12pt;"> See the </span><a href="../syllabus.pdf">Syllabus</a><span style="font-size: 12pt;"> for your section of the
+course for
+the significant consequences for disallowed collaboration and/or
+plagiarism.</span></p>
+
+<span style="font-weight: bold;">Due Date and Submission
+Instructions<span style="text-decoration: underline;"></span></span><br>
+
+<p style="margin-left: 22px;">Submit the following files on one of
+the CSL servers (unix1-unix4)
+using handin
+as
+follows:</p>
+<span style="font-weight: bold;"></span>
+<p style="margin-left: 22px;"><span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; Files:</span> BasicList.java BasicListIterator.java BasicLinkedList.java
+<br>
+<span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+touser:</span> grader-ph<br>
+<span style="font-size: 12pt;"><b>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+</b></span><span style="font-size: 12pt;"><b> assignment/subdirectory</b> (dependent on instructor):</span>
+</p>
+<p style="margin-left: 22px;"><span style="font-size: 12pt;"></span><span style="font-size: 12pt;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 102project5-jw-100&nbsp;&nbsp;&nbsp; (by 11:59pm Friday 6/5/2015 for 100%
+credit)<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 102project5-dp-100&nbsp;&nbsp;&nbsp;<br></span> <br>
+</p>
+
+<span style="font-weight: bold;">Testing With the Provided Test Driver<br>
+</span>
+<ol>
+
+  <li>You should develop and use your own tests prior to using
+the provided test driver.</li>
+  <li>
+    <p>Do not use the provided test driver until your solution is
+complete and you believe it is correct.</p>
+  </li>
+  <li>
+    <p>Using the <span style="font-weight: bold; font-style: italic;">save-as
+feature of your browser, <span style="text-decoration: underline;">not</span>
+cut-and-paste,</span> save <a href="P5TestDriver.java">P5TestDriver.java</a>
+(to be published at 6am on the first due date) in the same directory as all of
+the source files (.java files)</p>
+  </li>
+  <li>
+    <p>Compile the P5TestDriver.java, all of your source files (.java
+files) and run
+P5TestDriver. Remember that your code will be graded one of the CSL servers (unix1-unix4) so, to
+avoid unpleasant grading surprises, be sure to test on one of the CSL servers at before handing it in!</p>
+  </li>
+</ol>
+
+<span style="font-weight: bold;">Objectives</span><br>
+
+&nbsp;
+<ol style="margin-top: 0in;" start="1" type="1">
+
+  <li style="">To understand the implementation details of
+a doubly linked-list data structure.</li>
+  <li style="">
+    <p>To understand the implementaion details of iterators on
+data structures.</p>
+  </li>
+  <li style="">
+    <p>To appreciate the performance characteristics of a linked
+list data structure and iterators.</p>
+  </li>
+</ol>
+
+<span style="font-weight: bold;">Orientation</span><br>
+
+<p style="margin-left: 21px;">You
+will be implementing a linked list class that mimics the design of the
+LinkedList class found in the Java Standard Library. So that you can
+complete the assignment in a reasonable amout of time you will only be
+implementing a subset of the functionality found in the standard library
+version. <span style="font-weight: bold; font-style: italic;"></span>Note
+that some of the
+methods have an O(1) performance requirement (see specifications). You
+will also be supporting forward and backward iteration via methods by
+implementing an interface that extends the Iterator&lt;E&gt; interface
+from the Java Standard Library. To achieve efficient interation both
+forward and backward you will implement the list as a doubly-linked
+list.
+Finally, to support the Java for-each statement, you will implement the
+Iterable&lt;E&gt; interface from the Java Standard Library.<br>
+</p>
+
+<span style="font-weight: bold;">Specification</span><br>
+
+<ol>
+
+  <li>
+    <p>Your source code must meet the Programming/Coding style
+guidelines required by your instructor.<a href="../../../documents/java/javaCodingStyle.html"><br>
+    </a></p>
+  </li>
+  <li>
+    <p>Do
+not suppress any compiler warnings. If you do, your submission may be
+rejected for grading or your grade marked down at your instructor's
+descretion.</p>
+  </li>
+  <li>
+    <p>Note that there is an existing
+LinkedList class in the Java Standard
+Library - <span style="font-weight: bold; font-style: italic;">you may
+not use it</span> or any other data structure from the Java
+Standard Library in your implementation.</p>
+</li>
+  <li>Write an interface called <span style="font-weight: bold; font-style: italic;">BasicListIterator&lt;E&gt;
+    </span>to this <a href="docs/BasicListIterator.html">specification</a>.</li>
+  <ol>
+    <li>
+      <p>Notice that this interface extends java.util.Iterator&lt;E&gt; (yes, an interface can <span style="font-weight: bold; font-style: italic;">extend</span> another interface).</p>
+    </li>
+  </ol>
+
+
+  <li>
+    <p>Write an interface called <span style="font-weight: bold; font-style: italic;">BasicList&lt;E&gt;</span>
+to this <a href="docs/BasicList.html">specification</a>. Recall that
+making this interface generic will affect many of the
+parameters and return types of the methods specified in the interface.</p></li>
+  
+  <ol>
+
+    
+    <li>Notice that this interface extends java.lang.Iterable&lt;E&gt; (yes, an interface can <span style="font-weight: bold; font-style: italic;">extend</span> another interface).</li>
+
+  
+  </ol>
+</ol>
+<ol start="5">
+
+
+  <li>
+    <p>Write a class called <span style="font-weight: bold; font-style: italic;">BasicLinkedList&lt;E&gt;</span>
+to this <a href="docs/BasicLinkedList.html">specification</a>.</p>
+  </li>
+</ol>
+
+
+<ol start="6">
+  <ol>
+    <li>This class is required to have no more
+than three instance
+variables (all of which must be private). This count does not include
+the instance variable(s) found in the private inner classes you will be
+writing.<br>
+</li>
+    <li>
+      
+      <p>Some methods have performance requirements - be sure to read
+the detailed specifications!<span style="font-weight: bold; font-style: italic;"></span></p>
+</li>
+    <li>
+      <p><span style="font-weight: bold; font-style: italic;">Do not</span>
+use the iterators in your solution to the methods of BasicLinkedList. Such a dependency
+is unnecessary and will make development, testing, and debugging more
+difficult. I <span style="font-weight: bold; font-style: italic;">strongly suggest</span> that you implement the iterators <span style="font-weight: bold; font-style: italic;">after</span> completely and correctly completing
+all of the prior steps and testing the functionality of your
+BasicLinkedList thoroughly.</p>
+
+    </li>
+
+  </ol>
+  
+  <ol start="4">
+    
+    
+    
+    <li>You will need to write a private inner class that implements the <span style="font-style: italic;">BasicListIterator</span> interface to support the <span style="font-style: italic;">iterator</span>( ) and <span style="font-style: italic;">basicListIterator</span>( ) methods.</li>
+    <ol>
+      <li>
+        <p>Note that the <span style="font-style: italic;">next</span>( ) and <span style="font-style: italic;">previous</span>( ) methods<span style="font-weight: bold; font-style: italic;"> must have</span> <span style="font-weight: bold; font-style: italic;">O(1)
+performance</span>.&nbsp;</p>
+      </li>
+      <li>
+        <p>The <span style="font-weight: bold;"><span style="font-style: italic;">remove</span></span> <span style="font-weight: bold;"><span style="font-style: italic;">method</span></span>
+specified by java.util.Iterator should be implemented as an <span style="font-weight: bold; font-style: italic;">unsupported
+operation</span> as specified in the java.util.Iterator Java
+Documentation.</p>
+      </li>
+    </ol>
+
+    
+  </ol>
+</ol>
+<ol start="7">
+
+</ol>
+
+
+<span style="font-weight: bold;"></span><span style="font-weight: bold;"></span>
+</body></html>Ytext/htmlUUTF-8    ( ? N ` v ” • Ú"ö#                            #
